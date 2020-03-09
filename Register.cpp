@@ -5,7 +5,6 @@
 #include "Register.h"
 
 void Register::show() const {
-    //TODO show content with a widget
     std::cout << "Register contains: " << std::endl;
     for (auto it: activities) {
         std::cout << "In the date ";
