@@ -6,7 +6,11 @@
 #define ACTIVITIESREGISTER_DATETEST_H
 
 
+#include "googletest/include/gtest/gtest.h"
+#include "C:/Users/andre/CLionProjects/ActivitiesRegister/Date.h"
+
 class DateTest {
+protected:
 
 };
 

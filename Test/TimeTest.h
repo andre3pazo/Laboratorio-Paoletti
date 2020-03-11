@@ -6,7 +6,7 @@
 #define ACTIVITIESREGISTER_TIMETEST_H
 
 
-#include "googletest-master/googletest/include/gtest/gtest.h"
+#include "googletest/include/gtest/gtest.h"
 #include "C:/Users/andre/CLionProjects/ActivitiesRegister/Time.h"
 
 class TimeTest {
