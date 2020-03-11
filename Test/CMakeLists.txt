@@ -1,0 +1,5 @@
+find_package(GTest REQUIRED)
+include_directories(${GTEST_INCLUDE_DIR})
+set(SOURCE_FILES TimeTest.cpp DateTest.cpp RunAllTests.cpp)
+add_executable(runAllTests ${SOURCE_FILES})
+target_link_libraries(runAllTests ${GTEST_BOTH_LIBRARIES})

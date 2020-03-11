@@ -1,0 +1,14 @@
+//
+// Created by andre on 09/03/2020.
+//
+
+#ifndef ACTIVITIESREGISTER_DATETEST_H
+#define ACTIVITIESREGISTER_DATETEST_H
+
+
+class DateTest {
+
+};
+
+
+#endif //ACTIVITIESREGISTER_DATETEST_H
