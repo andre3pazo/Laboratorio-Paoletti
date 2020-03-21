@@ -1,8 +1,11 @@
 #include <iostream>
+#include <gtest/gtest.h>
 #include "Activity.h"
 #include "Register.h"
 
 int main() {
+    testing::InitGoogleTest();
+    RUN_ALL_TESTS();
     Activity* activity = new Activity("Walk the dog", Time(12, 30), Time(12, 45));
     Date* date = new Date(2020, 3, 2);
     Register reg = Register();
