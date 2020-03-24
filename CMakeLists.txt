@@ -3,7 +3,7 @@ project(ActivitiesRegister)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(ActivitiesRegister main.cpp Time.cpp Time.h Date.cpp Date.h Activity.cpp Activity.h Register.cpp Register.h Test/tests/TimeTest.cpp Test/tests/TimeTest.h Test/tests/DateTest.cpp Test/tests/DateTest.h)
+add_executable(ActivitiesRegister main.cpp Time.cpp Time.h Date.cpp Date.h Activity.cpp Activity.h Register.cpp Register.h Test/tests/TimeTest.cpp Test/tests/TimeTest.h Test/tests/DateTest.cpp Test/tests/DateTest.h Test/tests/ActivityTest.cpp Test/tests/ActivityTest.h)
 
 add_subdirectory(Test/lib/googletest-master)
 include_directories(Test/lib/googletest-master/googletest/include)

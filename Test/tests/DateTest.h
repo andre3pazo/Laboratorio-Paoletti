@@ -9,10 +9,7 @@
 #include "gtest/gtest.h"
 #include "C:/Users/andre/CLionProjects/ActivitiesRegister/Date.h"
 
-class DateTest {
-protected:
-
-};
+class DateTest {};
 
 
 #endif //ACTIVITIESREGISTER_DATETEST_H

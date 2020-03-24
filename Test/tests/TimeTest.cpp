@@ -3,3 +3,7 @@
 //
 
 #include "TimeTest.h"
+
+TEST(ActivityTest, TimeTest) {
+
+}

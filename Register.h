@@ -21,6 +21,8 @@ public:
         activities.erase(date);
     }
 
+    int getNumActivities();
+
     void show() const;
 
 private:

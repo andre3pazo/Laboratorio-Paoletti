@@ -18,3 +18,11 @@ void Register::show() const {
         std::cout << std::endl;
     }
 }
+
+int Register::getNumActivities() {
+    int result = 0;
+    auto it = activities.begin();
+    while (it != activities.end())
+        result += 1;
+    return result;
+}

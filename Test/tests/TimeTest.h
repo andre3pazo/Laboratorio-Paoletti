@@ -9,10 +9,7 @@
 #include "gtest/gtest.h"
 #include "C:/Users/andre/CLionProjects/ActivitiesRegister/Time.h"
 
-class TimeTest {
-protected:
-
-};
+class TimeTest {};
 
 
 #endif //ACTIVITIESREGISTER_TIMETEST_H
