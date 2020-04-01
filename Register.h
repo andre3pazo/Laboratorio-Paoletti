@@ -6,27 +6,26 @@
 #define ACTIVITIESREGISTER_REGISTER_H
 
 
-#include <map>
-#include <curses.h>
+#include <list>
 #include "Date.h"
 #include "Activity.h"
 
 class Register {
 public:
-    void add(Date* date, Activity* activity) {
-        activities.insert(std::make_pair(date, activity));
+    void add(const Activity& activity) {
+        activities.push_back(activity);
     }
 
-    void remove(Date* date) {
-        activities.erase(date);
+    void remove(const Activity& activity) {
+        activities.remove(activity);
     }
 
     int getNumActivities();
 
-    void show() const;
+    void show(const Date& date) const;
 
 private:
-    std::multimap<Date*, Activity*> activities;
+    std::list<Activity> activities;
 };
 
 

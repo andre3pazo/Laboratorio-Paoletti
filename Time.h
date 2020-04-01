@@ -28,9 +28,8 @@ public:
         return seconds;
     }
 
-    const Time* print() const {
+    const void print() const {
         std::cout << hour << ":" << minutes << ":" << seconds;
-        return this;
     }
 
 private:

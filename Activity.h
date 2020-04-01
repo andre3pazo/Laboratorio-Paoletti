@@ -7,13 +7,18 @@
 
 
 #include "Time.h"
+#include "Date.h"
 
 class Activity {
 public:
-    Activity(std::string d="Empty description", Time s=Time(), Time e=Time()) : description(d), startTime(s), endTime(e) {}
+    Activity(std::string d="Empty description", Date date=Date(), Time s=Time(), Time e=Time()) : description(d), date(date), startTime(s), endTime(e) {}
 
     const std::string &getDescription() const;
     void setDescription(const std::string &description);
+
+    const Date &getDate() const;
+
+    void setDate(const Date &date);
 
     const Time &getStartTime() const;
     void setStartTime(const Time &startTime);
@@ -23,6 +28,7 @@ public:
 
 private:
     std::string description;
+    Date date;
     Time startTime;
     Time endTime;
 };

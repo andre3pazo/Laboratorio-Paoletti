@@ -5,12 +5,14 @@
 #include "Activity.h"
 
 const std::string &Activity::getDescription() const {
-    std::cout << description;
     return description;
 }
 
+void Activity::setDescription(const std::string &description) {
+    Activity::description = description;
+}
+
 const Time &Activity::getStartTime() const {
-    startTime.print();
     return startTime;
 }
 
@@ -18,15 +20,18 @@ void Activity::setStartTime(const Time &startTime) {
     Activity::startTime = startTime;
 }
 
-void Activity::setDescription(const std::string &description) {
-    Activity::description = description;
-}
-
 const Time &Activity::getEndTime() const {
-    endTime.print();
     return endTime;
 }
 
 void Activity::setEndTime(const Time &endTime) {
     Activity::endTime = endTime;
+}
+
+const Date &Activity::getDate() const {
+    return date;
+}
+
+void Activity::setDate(const Date &date) {
+    Activity::date = date;
 }

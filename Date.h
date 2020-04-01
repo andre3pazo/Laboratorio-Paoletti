@@ -20,7 +20,7 @@ public:
         return year;
     }
 
-    int getMonth() const {
+    std::string getMonth() const {
         return month;
     }
 
@@ -28,14 +28,15 @@ public:
         return day;
     }
 
-    const Date* print() const {
-        std::cout << day << "/" << month << "/" << year << std::endl;
-        return this;
-    }
+    std::string printDay() const;
+    std::string printMonth() const;
+    std::string printYear() const;
+
+    bool operator==(const Date& date) const;
 
 private:
     int year;
-    int month;
+    std::string month;
     int day;
 };
 
