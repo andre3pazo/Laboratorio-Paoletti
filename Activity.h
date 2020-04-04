@@ -26,6 +26,9 @@ public:
     const Time &getEndTime() const;
     void setEndTime(const Time &endTime);
 
+    const void printStartTime();
+    const void printEndTime();
+
 private:
     std::string description;
     Date date;

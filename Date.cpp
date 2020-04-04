@@ -104,15 +104,15 @@ void Date::setDay(int d) {
     }
 }
 
-std::string Date::printDay() const {
+const std::string Date::printDay() const {
     return std::to_string(day);
 }
 
-std::string Date::printMonth() const {
+const std::string Date::printMonth() const {
     return month;
 }
 
-std::string Date::printYear() const {
+const std::string Date::printYear() const {
     return std::to_string(year);
 }
 

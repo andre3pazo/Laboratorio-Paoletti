@@ -28,9 +28,9 @@ public:
         return day;
     }
 
-    std::string printDay() const;
-    std::string printMonth() const;
-    std::string printYear() const;
+    const std::string printDay() const;
+    const std::string printMonth() const;
+    const std::string printYear() const;
 
     bool operator==(const Date& date) const;
 

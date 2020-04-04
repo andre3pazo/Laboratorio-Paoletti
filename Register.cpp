@@ -6,14 +6,14 @@
 
 void Register::show(const Date& date) const {
     std::cout << "In the day ";
-    std::cout << date.getDay() << " of " << date.getMonth() << " " << date.getYear() << std::endl;
+    std::cout << date.printDay() << " of " << date.printMonth() << " " << date.printYear() << std::endl;
     std::cout << " the following activities were done: " << std::endl;
     for (auto it: activities) {
         if(it.getDate() == date) {
             std::cout << it.getDescription() << " from ";
-            it.getStartTime().print();
+            it.printStartTime();
             std::cout << " to ";
-            it.getEndTime().print();
+            it.printStartTime();
             std::cout << std::endl;
         }
     }

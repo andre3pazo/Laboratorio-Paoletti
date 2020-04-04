@@ -35,3 +35,15 @@ const Date &Activity::getDate() const {
 void Activity::setDate(const Date &date) {
     Activity::date = date;
 }
+
+const void Activity::printStartTime() {
+    std::cout << startTime.printHour() << "/";
+    std::cout << startTime.printMinutes() << "/";
+    std::cout << startTime.printSeconds();
+}
+
+const void Activity::printEndTime() {
+    std::cout << endTime.printHour() << "/";
+    std::cout << endTime.printMinutes() << "/";
+    std::cout << endTime.printSeconds();
+}

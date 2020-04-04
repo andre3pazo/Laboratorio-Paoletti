@@ -38,3 +38,15 @@ void Time::setSeconds(int s) {
     else
         throw std::out_of_range("Trying to set invalid second");
 }
+
+const std::string Time::printHour() {
+    return std::to_string(hour);
+}
+
+const std::string Time::printMinutes() {
+    return std::to_string(minutes);
+}
+
+const std::string Time::printSeconds() {
+    return std::to_string(seconds);
+}

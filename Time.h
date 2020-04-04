@@ -28,9 +28,9 @@ public:
         return seconds;
     }
 
-    const void print() const {
-        std::cout << hour << ":" << minutes << ":" << seconds;
-    }
+    const std::string printHour();
+    const std::string printMinutes();
+    const std::string printSeconds();
 
 private:
     int hour;
