@@ -7,25 +7,26 @@
 
 
 #include <list>
+#include <map>
 #include "Date.h"
 #include "Activity.h"
 
 class Register {
 public:
-    void add(const Activity& activity) {
-        activities.push_back(activity);
+    void add(Activity activity) {
+        activities.insert(std::make_pair(activity.getDate(), activity));
     }
 
-    void remove(const Activity& activity) {
-        activities.remove(activity);
+    void remove(Activity activity) {
+        activities.erase(activity.getDate());
     }
 
     int getNumActivities();
 
-    void show(const Date& date) const;
+    void show(const Date& date);
 
 private:
-    std::list<Activity> activities;
+   std::multimap<Date, Activity> activities;
 };
 
 

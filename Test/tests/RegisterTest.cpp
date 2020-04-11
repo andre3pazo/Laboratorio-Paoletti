@@ -10,14 +10,10 @@ TEST(RegisterTest, CorrectActivitiesNumber) {
     auto secondActivity = Activity();
     auto thirdActivity = Activity();
     auto forthActivity = Activity();
-    auto firstDate = Date();
-    auto secondDate = Date();
-    auto thirdDate = Date();
-    auto forthDate = Date();
     Register firstRegister;
-    firstRegister.add(&firstDate, &firstActivity);
-    firstRegister.add(&secondDate, &secondActivity);
-    firstRegister.add(&thirdDate, &thirdActivity);
-    firstRegister.add(&forthDate, &forthActivity);
+    firstRegister.add(firstActivity);
+    firstRegister.add(secondActivity);
+    firstRegister.add(thirdActivity);
+    firstRegister.add(forthActivity);
     ASSERT_EQ(4, firstRegister.getNumActivities());
 }

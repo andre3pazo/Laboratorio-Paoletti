@@ -18,16 +18,16 @@ public:
 
     const Date &getDate() const;
 
-    void setDate(const Date &date);
+    void setDate(const Date &newDate);
 
     const Time &getStartTime() const;
-    void setStartTime(const Time &startTime);
+    void setStartTime(const Time &time);
 
     const Time &getEndTime() const;
-    void setEndTime(const Time &endTime);
+    void setEndTime(const Time &time);
 
-    const void printStartTime();
-    const void printEndTime();
+    const void printStartTime() const;
+    const void printEndTime() const;
 
 private:
     std::string description;

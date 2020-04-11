@@ -39,14 +39,27 @@ void Time::setSeconds(int s) {
         throw std::out_of_range("Trying to set invalid second");
 }
 
-const std::string Time::printHour() {
+const std::string Time::printHour() const {
     return std::to_string(hour);
 }
 
-const std::string Time::printMinutes() {
+const std::string Time::printMinutes() const {
     return std::to_string(minutes);
 }
 
-const std::string Time::printSeconds() {
+const std::string Time::printSeconds() const {
     return std::to_string(seconds);
+}
+
+bool Time::operator==(const Time& time) const {
+    if(hour == time.getHour()) {
+        if (minutes == time.getMinute()) {
+            if (seconds == time.getSecond())
+                return true;
+            else
+                return false;
+        } else
+            return false;
+    } else
+        return false;
 }

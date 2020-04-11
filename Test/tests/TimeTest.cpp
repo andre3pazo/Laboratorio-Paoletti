@@ -5,9 +5,19 @@
 #include "gtest/gtest.h"
 #include "../../Time.h"
 
-TEST(TimeTest, CorrectTime) {
+TEST(TimeTest, CorrectConstructor) {
     auto time = Time(20, 30, 40);
     ASSERT_EQ(20, time.getHour());
     ASSERT_EQ(30, time.getMinute());
     ASSERT_EQ(40, time.getSecond());
+    ASSERT_THROW(Time(24), std::out_of_range);
+    ASSERT_THROW(Time(12, 60), std::out_of_range);
+    ASSERT_THROW(Time(12, 30, 60), std::out_of_range);
+}
+
+TEST(TimeTest, CorrectSetters) {
+    auto time = Time();
+    ASSERT_THROW(time.setSeconds(60), std::out_of_range);
+    ASSERT_THROW(time.setMinutes(60), std::out_of_range);
+    ASSERT_THROW(time.setHour(24), std::out_of_range);
 }

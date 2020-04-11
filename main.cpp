@@ -1,16 +1,24 @@
-#include <gtest/gtest.h>
+#include "gtest/gtest.h"
 #include "Activity.h"
 #include "Register.h"
 
 int main() {
-    Date date = Date(2020, 3, 2);
-    Activity activity = Activity("Walk the dog", date, Time(12, 30), Time(12, 45));
+    ::testing::InitGoogleTest();
+    Date firstDate = Date(2020, 3, 2);
+    Activity firstActivity = Activity("Walk the dog", firstDate, Time(12, 30), Time(12, 45));
     Register reg = Register();
-    reg.add(activity);
-    Activity anotherActivity = Activity("Take a shower", date, Time(19), Time(19, 10, 15));
-    reg.add(anotherActivity);
-    reg.show(date);
-    testing::InitGoogleTest();
-    RUN_ALL_TESTS();
-    return 0;
+    reg.add(firstActivity);
+    Activity secondActivity = Activity("Take a shower", firstDate, Time(19), Time(19, 10, 15));
+    reg.add(secondActivity);
+    Date secondDate = Date(2020, 4, 10);
+    Activity thirdActivity = Activity("Go running", secondDate, Time(16, 45, 5), Time(17, 10));
+    reg.show(firstDate);
+    reg.add(thirdActivity);
+    reg.show(secondDate);
+    Date thirdDate = Date(2020, 12, 2);
+    Activity forthActivity = Activity("Wash the car", thirdDate, Time(10, 30));
+    reg.add(forthActivity);
+    reg.remove(forthActivity);
+    reg.show(thirdDate);
+    return RUN_ALL_TESTS();
 }

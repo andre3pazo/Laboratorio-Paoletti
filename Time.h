@@ -10,27 +10,29 @@
 
 class Time {
 public:
-    Time(int h=0, int m=0, int s=0);
+    Time(int h=0, int m=0, int s=0); //Le ore devono essere espresse come un numero tra 0 e 23; i minuti e i secondi tra 0 e 59.
 
     void setHour(int h);
     void setMinutes(int m);
     void setSeconds(int s);
 
-    int getHour() {
+    int getHour() const {
         return hour;
     }
 
-    int getMinute() {
+    int getMinute() const {
         return minutes;
     }
 
-    int getSecond() {
+    int getSecond() const {
         return seconds;
     }
 
-    const std::string printHour();
-    const std::string printMinutes();
-    const std::string printSeconds();
+    const std::string printHour() const;
+    const std::string printMinutes() const;
+    const std::string printSeconds() const;
+
+    bool operator==(const Time& time) const;
 
 private:
     int hour;

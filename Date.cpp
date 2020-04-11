@@ -11,45 +11,19 @@ Date::Date(int y, int m, int d) {
         year = y;
     if (m < 1 || m > 12)
         throw std::out_of_range("Trying to set invalid month");
-    else {
-        if (m == 1)
-            month = "January";
-        if (m == 2)
-            month = "February";
-        if (m == 3)
-            month = "March";
-        if (m == 4)
-            month = "April";
-        if (m == 5)
-            month = "May";
-        if (m == 6)
-            month = "June";
-        if (m == 7)
-            month = "July";
-        if (m == 8)
-            month = "August";
-        if (m == 9)
-            month = "September";
-        if (m == 10)
-            month = "October";
-        if (m == 11)
-            month = "November";
-        if (m == 12)
-            month = "December";
-    }
+    else
+        month = m;
     if (d < 1 || d > 31)
         throw std::out_of_range("Trying to set invalid day");
-    else {
-        if ((m == 4 || m == 6 || m == 9 || m == 11) && d > 30)
+    if ((m == 4 || m == 6 || m == 9 || m == 11) && d > 30)
             throw std::out_of_range("Trying to set invalid day");
-        else if (m == 2) {
-            if (((y % 4 == 0 && y % 100 != 0) || (y % 4 && y % 400)) && d > 29)
-                throw std::out_of_range("Trying to set invalid day in February");
-            else if (d > 28)
-                throw std::out_of_range("Trying to set invalid day in February");
-        } else
-            day = d;
+    if (m == 2 && d > 28) {
+        if (d == 29 && (y % 4 != 0 || (y % 4 == 0 && y % 100 == 0)))
+            throw std::out_of_range("Trying to set invalid day in February");
+        else if (d > 29)
+            throw std::out_of_range("Trying to set invalid day in February");
     }
+    day = d;
 }
 
 void Date::setYear(int y) {
@@ -62,42 +36,20 @@ void Date::setYear(int y) {
 void Date::setMonth(int m) {
     if (m < 1 || m > 12)
         throw std::out_of_range("Trying to set invalid month");
-    else if (m == 1)
-        month = "January";
-    if (m == 2)
-        month = "February";
-    if (m == 3)
-        month = "March";
-    if (m == 4)
-        month = "April";
-    if (m == 5)
-        month = "May";
-    if (m == 6)
-        month = "June";
-    if (m == 7)
-        month = "July";
-    if (m == 8)
-        month = "August";
-    if (m == 9)
-        month = "September";
-    if (m == 10)
-        month = "October";
-    if (m == 11)
-        month = "November";
-    if (m == 12)
-        month = "December";
+    else
+        month = m;
 }
 
 void Date::setDay(int d) {
     if (d < 1 || d > 31)
         throw std::out_of_range("Trying to set invalid day");
     else {
-        if ((month == "April" || month == "June" || month == "September" || month == "November") && d > 30)
+        if ((month == 4 || month == 6 || month == 9 || month == 11) && d > 30)
             throw std::out_of_range("Trying to set invalid day");
-        else if (month == "February") {
-            if (((year % 4 == 0 && year % 100 != 0) || (year % 4 && year % 400)) && d > 29)
+        else if (month == 2) {
+            if (d > 28 && (year % 4 != 0 || (year % 4 == 0 && year % 100 == 0)))
                 throw std::out_of_range("Trying to set invalid day in February");
-            else if (d > 28)
+            if (d > 29 && year % 4 == 0 && (year % 100 != 0 || (year % 100 == 0 && year % 400 == 0)))
                 throw std::out_of_range("Trying to set invalid day in February");
         } else
             day = d;
@@ -109,7 +61,30 @@ const std::string Date::printDay() const {
 }
 
 const std::string Date::printMonth() const {
-    return month;
+    if(month == 1)
+        return "January";
+    if(month == 2)
+        return "February";
+    if(month == 3)
+        return "March";
+    if(month == 4)
+        return "April";
+    if(month == 5)
+        return "May";
+    if(month == 6)
+        return "June";
+    if(month == 7)
+        return "July";
+    if(month == 8)
+        return "August";
+    if(month == 9)
+        return "September";
+    if(month == 10)
+        return "October";
+    if(month == 11)
+        return "November";
+    if(month == 12)
+        return "December";
 }
 
 const std::string Date::printYear() const {
@@ -127,4 +102,23 @@ bool Date::operator==(const Date& date) const {
             return false;
     } else
         return false;
+}
+
+bool Date::operator<(const Date &date) const {
+    if(year < date.getYear())
+        return true;
+    if(year > date.getYear())
+        return false;
+    if(year == date.getYear()) {
+        if (month < date.getMonth())
+            return true;
+        if (month > date.getMonth())
+            return false;
+        if(month == date.getMonth()) {
+            if(day < date.getDay())
+                return true;
+            if(day > date.getDay())
+                return false;
+        }
+    }
 }

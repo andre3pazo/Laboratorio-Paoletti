@@ -4,18 +4,25 @@
 
 #include "Register.h"
 
-void Register::show(const Date& date) const {
-    std::cout << "In the day ";
-    std::cout << date.printDay() << " of " << date.printMonth() << " " << date.printYear() << std::endl;
-    std::cout << " the following activities were done: " << std::endl;
-    for (auto it: activities) {
-        if(it.getDate() == date) {
-            std::cout << it.getDescription() << " from ";
-            it.printStartTime();
+void Register::show(const Date& date) {
+    std::cout << std::endl;
+    auto it = activities.find(date);
+    if(it != activities.end()) {
+        std::cout << "In the day ";
+        std::cout << date.printDay() << " of " << date.printMonth() << " " << date.printYear();
+        std::cout << " the following activities were done: " << std::endl;
+        while (it->first == date) {
+            std::cout << (it->second).getDescription() << " (from ";
+            (it->second).printStartTime();
             std::cout << " to ";
-            it.printStartTime();
-            std::cout << std::endl;
+            (it->second).printEndTime();
+            std::cout << ")" << std::endl;
+            it++;
         }
+    } else {
+        std::cout << "No activities were done in the day ";
+        std::cout << date.printDay() << " of " << date.printMonth() << " " << date.printYear() << ".";
+        std::cout << std::endl << std::endl;
     }
 }
 

@@ -20,7 +20,7 @@ public:
         return year;
     }
 
-    std::string getMonth() const {
+    int getMonth() const {
         return month;
     }
 
@@ -33,10 +33,11 @@ public:
     const std::string printYear() const;
 
     bool operator==(const Date& date) const;
+    bool operator<(const Date& date) const;
 
 private:
     int year;
-    std::string month;
+    int month;
     int day;
 };
 
