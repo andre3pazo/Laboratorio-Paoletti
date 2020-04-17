@@ -17,3 +17,13 @@ TEST(RegisterTest, CorrectActivitiesNumber) {
     firstRegister.add(forthActivity);
     ASSERT_EQ(4, firstRegister.getNumActivities());
 }
+
+TEST(RegisterTest, CorrectInsertRemove) {
+    auto date = Date();
+    auto activity = Activity("", date);
+    auto reg = Register();
+    reg.add(activity);
+    reg.show(date);
+    reg.remove(activity);
+    reg.show(date);
+}
