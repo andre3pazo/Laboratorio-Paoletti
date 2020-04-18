@@ -20,6 +20,8 @@ public:
     void remove(Activity activity) {
         activities.erase(activity.getDate());
     }
+    
+    bool search(Activity activity);
 
     int getNumActivities();
 
