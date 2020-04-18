@@ -32,3 +32,7 @@ int Register::getNumActivities() {
         result += 1;
     return result;
 }
+
+bool Register::search(Activity activity) {
+    return activities.find(activity.getDate()) != activities.end();
+}
