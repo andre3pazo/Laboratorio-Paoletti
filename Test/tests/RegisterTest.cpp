@@ -19,11 +19,16 @@ TEST(RegisterTest, CorrectActivitiesNumber) {
 }
 
 TEST(RegisterTest, CorrectInsertRemove) {
-    auto date = Date();
-    auto activity = Activity("", date);
+    auto firstDate = Date(2020, 3, 5);
+    auto secondDate = Date(2020, 4, 2);
+    auto firstActivity = Activity("", firstDate);
+    auto secondActivity = Activity("", secondDate);
     auto reg = Register();
-    reg.add(activity);
-    reg.show(date);
-    reg.remove(activity);
-    reg.show(date);
+    reg.add(firstActivity);
+    reg.add(secondActivity);
+    ASSERT_EQ(reg.getNumActivities(), 2);
+    reg.remove(secondActivity);
+    ASSERT_EQ(reg.getNumActivities(), 1);
+    ASSERT_TRUE(reg.search(firstActivity));
+    ASSERT_FALSE(reg.search(secondActivity));
 }
